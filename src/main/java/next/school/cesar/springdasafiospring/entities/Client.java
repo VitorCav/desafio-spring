@@ -32,8 +32,8 @@ public class Client {
     private Date createAt;
     private Date updatedAt;
     
-    @ManyToMany
-    private List<Address> addresses;
+    @OneToMany
+    private List<Insurance> addresses;
     
     @OneToMany
     private List<Vehicle> vehicles;

@@ -1,5 +1,6 @@
 package next.school.cesar.springdasafiospring.entities;
 
+import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -7,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,17 +21,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Address {
+public class Insurance {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String location;
-    private int number;
-    private String zipcode;
+    private String type;
+    private int risk;
+    private String analysis;
     private String observation;
+    private Date createdAt;
+    private Date validateAt;
     
-    @ManyToMany
-    private List<Client> clients;
+    @ManyToOne
+    private Client client;
 
 }
